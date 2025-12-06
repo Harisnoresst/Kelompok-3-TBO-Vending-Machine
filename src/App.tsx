@@ -4,6 +4,7 @@ import { Check, ShoppingBag, Coins, XCircle, PackageX, Wallet, ArrowRight } from
 import ProductGrid from './components/ProductGrid';
 import CodeInput from './components/CodeInput';
 import CashInput from './components/CashInput';
+const BASE = import.meta.env.BASE_URL;
 
 // --- TIPE DATA ---
 interface Product {
@@ -30,30 +31,30 @@ interface MoneyDenomination {
 
 // --- DATA UANG ---
 const moneyDenominations: MoneyDenomination[] = [
-  { value: 100000, image: '/images/14.png' },
-  { value: 50000, image: '/images/13.png' },
-  { value: 20000, image: '/images/12.png' },
-  { value: 10000, image: '/images/11.png' },
-  { value: 5000, image: '/images/10.png' },
-  { value: 2000, image: '/images/9.png' },
-  { value: 1000, image: '/images/15.png'},
-  { value: 500, image: '/images/16.png'},
+  { value: 100000, image: '${BASE}images/14.png' },
+  { value: 50000, image: '${BASE}images/13.png' },
+  { value: 20000, image: '${BASE}images/12.png' },
+  { value: 10000, image: '${BASE}images/11.png' },
+  { value: 5000, image: '${BASE}images/10.png' },
+  { value: 2000, image: '${BASE}images/9.png' },
+  { value: 1000, image: '${BASE}images/15.png'},
+  { value: 500, image: '${BASE}images/16.png'},
 ];
 
 // --- DATA PRODUK ---
 const products: Product[] = [
-  { id: '1', name: 'Jus Jeruk', price: 6000, code: 'D111', image: '/images/1.png', stock: 8 },
-  { id: '2', name: 'Jus Melon', price: 8000, code: 'D112', image: '/images/2.png', stock: 0 }, 
-  { id: '3', name: 'Jus Strawberry', price: 14500, code: 'D113', image: '/images/3.png', stock: 7 },
-  { id: '4', name: 'Jus Mangga', price: 12000, code: 'S211', image: '/images/4.png', stock: 12 },
-  { id: '5', name: 'Jus Apel', price: 16000, code: 'S212', image: '/images/5.png', stock: 0 }, 
-  { id: '6', name: 'Jus Alpukat', price: 15000, code: 'S213', image: '/images/6.png', stock: 9 },
+  { id: '1', name: 'Jus Jeruk', price: 6000, code: 'D111', image: '${BASE}images/1.png', stock: 8 },
+  { id: '2', name: 'Jus Melon', price: 8000, code: 'D112', image: '${BASE}images/2.png', stock: 0 }, 
+  { id: '3', name: 'Jus Strawberry', price: 14500, code: 'D113', image: '${BASE}images/3.png', stock: 7 },
+  { id: '4', name: 'Jus Mangga', price: 12000, code: 'S211', image: '${BASE}images/4.png', stock: 12 },
+  { id: '5', name: 'Jus Apel', price: 16000, code: 'S212', image: '${BASE}images/5.png', stock: 0 }, 
+  { id: '6', name: 'Jus Alpukat', price: 15000, code: 'S213', image: '${BASE}images/6.png', stock: 9 },
 ];
 
 // --- DATA TOPPING (UPDATE: ADA KODE) ---
 const availableToppings: Topping[] = [
-  { id: 't1', name: 'Susu', price: 1000, image: '/images/7.png', code: 'T01' },
-  { id: 't2', name: 'Madu', price: 3000, image: '/images/8.png', code: 'T02' },
+  { id: 't1', name: 'Susu', price: 1000, image: '${BASE}images/7.png', code: 'T01' },
+  { id: 't2', name: 'Madu', price: 3000, image: '${BASE}images/8.png', code: 'T02' },
 ];
 
 function App() {
@@ -74,7 +75,7 @@ function App() {
 
   // --- AUDIO UTILS ---
   const playClickSound = () => {
-    const audio = new Audio('/sounds/click.mp3');
+    const audio = new Audio('${BASE}sounds/click.mp3');
     audio.volume = 0.5;
     audio.currentTime = 0;
     audio.play().catch(() => {});
@@ -189,7 +190,7 @@ function App() {
     
     setTimeout(() => {
         setShowSuccessModal(true);
-        const successAudio = new Audio('/sounds/cekring.mp3');
+        const successAudio = new Audio('${BASE}sounds/cekring.mp3');
         successAudio.volume = 0.6; 
         successAudio.play().catch(() => {});
     }, 300);
@@ -231,7 +232,7 @@ function App() {
     <div 
         className="min-h-screen p-4 flex flex-col items-center justify-center relative"
         style={{
-            backgroundImage: 'url("/images/wp2.jpg")',
+            backgroundImage: 'url("${BASE}images/wp2.jpg")',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',

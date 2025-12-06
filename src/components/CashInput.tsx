@@ -14,10 +14,10 @@ interface CashInputProps {
 
 export default function CashInput({ insertedAmount, onInsertMoney, denominations }: CashInputProps) {
   const playClickSound =(amount : number) => {
-    let soundFile = '/sounds/kertas.mp3';
+    let soundFile = '${BASE}sounds/kertas.mp3';
 
     if ( amount <= 1000 ) {
-      soundFile= '/sounds/koin.mp3';
+      soundFile= '${BASE}sounds/koin.mp3';
     }
 
     const audio = new Audio (soundFile);
