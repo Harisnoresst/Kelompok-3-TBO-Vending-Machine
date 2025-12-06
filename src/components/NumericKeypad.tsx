@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Delete } from 'lucide-react';
+const BASE = import.meta.env.BASE_URL;
 
 interface NumericKeypadProps {
   onNumberClick: (num: string) => void;
@@ -17,7 +18,7 @@ export default function NumericKeypad({ onNumberClick, onDelete, onClear, onSubm
   // --- FUNGSI PEMUTAR SUARA ---
   const playClickSound = () => {
     // Pastikan path file sesuai dengan yang ada di folder public
-    const audio = new Audio('${BASE}sounds/click.mp3');
+    const audio = new Audio(`${BASE}sounds/click.mp3`);
     audio.volume = 0.5; // Atur volume (0.0 sampai 1.0)
     audio.currentTime = 0; // Agar kalau dipencet cepat suaranya tidak delay
     audio.play().catch((e) => console.log("Audio error:", e));

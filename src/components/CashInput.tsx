@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Wallet } from 'lucide-react';
+const BASE = import.meta.env.BASE_URL;
 
 interface MoneyDenomination {
   value: number;
@@ -14,10 +15,10 @@ interface CashInputProps {
 
 export default function CashInput({ insertedAmount, onInsertMoney, denominations }: CashInputProps) {
   const playClickSound =(amount : number) => {
-    let soundFile = '${BASE}sounds/kertas.mp3';
+    let soundFile = `${BASE}sounds/kertas.mp3`;
 
     if ( amount <= 1000 ) {
-      soundFile= '${BASE}sounds/koin.mp3';
+      soundFile= `${BASE}sounds/koin.mp3`;
     }
 
     const audio = new Audio (soundFile);

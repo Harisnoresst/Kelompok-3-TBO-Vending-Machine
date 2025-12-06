@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ShoppingCart } from 'lucide-react';
+const BASE = import.meta.env.BASE_URL;
 
 interface Product {
   id: string;
@@ -18,7 +19,7 @@ export default function ProductCard({ id, name, price, code, image, stock, onSel
   // LOGIKA PENTING: Cek apakah image diawali dengan '/' (artinya file gambar)
   const isImageFile = image.startsWith('/');
 const playClickSound =() => {
-  const audio = new Audio ('${BASE}sounds/click.mp3');
+  const audio = new Audio (`${BASE}sounds/click.mp3`);
   audio.volume = 0.5;
   audio.currentTime = 0;
   audio.play().catch((e) => console.log("Audio error:", e));
