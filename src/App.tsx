@@ -91,7 +91,7 @@ function App() {
     audio.play().catch(() => {});
   };
 
-  //algortima greedy buat ngitung kembalian coin 
+  //ini algortima greedy buat ngitung kembalian coin 
   const calculateChangeBreakdown = (changeAmount: number) => {
     let remaining = changeAmount;
     const breakdown: { money: MoneyDenomination; count: number }[] = [];
@@ -322,7 +322,7 @@ function App() {
                 <div className="p-5 md:w-7/12 flex flex-col overflow-hidden">
                      <div className="flex justify-between items-center mb-3">
                         <h3 className="text-lg font-bold text-gray-800 flex items-center gap-2"><Wallet size={18}/> Pembayaran</h3>
-                        <button onClick={() => setShowPaymentModal(false)} className="text-red-500 font-bold text-xs hover:underline">BATALKAN</button>
+                
                      </div>
 
                      <div className="flex-1 overflow-y-auto mb-3 pr-1">
